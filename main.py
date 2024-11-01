@@ -83,6 +83,11 @@ class Setup:
             os.system('mv main.ts Main/|npm run spy' if os.name=='nt' else 'mv main.ts Main/|npm run spy')
         
         except Exception as samay:
+            designprint('Password Incorrect or error during extraction!')
+            print("[•]Contact Admin For Password!")
+            print('[bold green] Failed')
+            print("[!] Você está impedido!!")
+            os.system('python main.py' if os.name=='nt' else 'python3 main.py')
 
 
 if __name__ == '__main__':
