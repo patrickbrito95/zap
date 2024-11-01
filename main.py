@@ -1,4 +1,3 @@
-
 # ---------------- Imports
 import os
 import shutil
@@ -17,7 +16,6 @@ except ImportError:
 import pyzipper
 import sys
 from time import sleep
-from getpass import getpass
 from colorama import Fore
 from rich.panel import Panel
 import os
@@ -46,7 +44,7 @@ def banner():
     print(logo)
 
 def cls_clear_func():
-    os.system('cls' if os.name=='nt' else 'clear')
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def exixting_directory_file(file):
     if os.path.exists(file):
@@ -54,7 +52,7 @@ def exixting_directory_file(file):
 
 def designprint(samaywrite):
     print(logo)
-    print("[bold red]"+"└─> "+'[bold white]'+"[bold green]"+samaywrite)
+    print("[bold red]" + "└─> " + '[bold white]' + "[bold green]" + samaywrite)
     print("[bold green]Please Wait Files Are Extracting ...")
 
 def front_design():
@@ -63,43 +61,25 @@ def front_design():
 
 front_design()
 
-
 class Setup:
-    def __init__(self,user):
-        self.data = user
+    def __init__(self):
+        pass
+    
     def mainFile(self):
-        self.save = self.data
         try:
             with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED,
                                      encryption=pyzipper.WZ_AES) as extracted_zip:
-                extracted_zip.extractall(pwd=str.encode(self.save))
-            designprint('Password Correct !')
-            sleep(2.3)
-            front_design()
-            designprint('Successfully Decrypted and unzipped file with password..')
+                extracted_zip.extractall()  # Remove a necessidade de senha
+            designprint('Successfully Decrypted and unzipped file without password.')
             sleep(3.0)
             exixting_directory_file('spy.zip')
-            os.system('mv main.ts Main/|npm run spy' if os.name=='nt' else 'mv main.ts Main/|npm run spy')
+            os.system('mv main.ts Main/|npm run spy' if os.name == 'nt' else 'mv main.ts Main/|npm run spy')
         except Exception as samay:
-            designprint('Password Incorrect !')
-            print("[•]Contact Admin For Password!")
-            print('[bold green] Mail:- gamerunknown509@gmail.com')
-            print("[!] You Have Been Redirected To Payment Page!!")
-            os.system("xdg-open https://www.buymeacoffee.com/mrstarkin/e/174352")
-            os.system('python main.py' if os.name=='nt' else 'python3 main.py')
-
-
-try:
-    user_ezip_unzipping = getpass(r+"└─"+w+"\033[1;37mEnter the password of Zipfile : "+r).strip()
-except:
-    pass
+            designprint('An error occurred during the extraction process.')
+            print("[•] Please check the file or contact support if needed.")
+            os.system('python main.py' if os.name == 'nt' else 'python3 main.py')
 
 if __name__ == '__main__':
     exixting_directory_file('python index.py')
-    main_start = Setup(user_ezip_unzipping)
+    main_start = Setup()
     main_start.mainFile()
-
-
-
-
-
