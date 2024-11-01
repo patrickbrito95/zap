@@ -71,7 +71,7 @@ class Setup:
         self.save = self.data
         try:
            with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED) as extracted_zip:
-    extracted_zip.extractall()
+             extracted_zip.extractall()
             sleep(2.3)
             front_design()
             designprint('Successfully Decrypted and unzipped file..')
