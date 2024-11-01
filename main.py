@@ -1,3 +1,4 @@
+
 # ---------------- Imports
 import os
 import shutil
@@ -16,6 +17,7 @@ except ImportError:
 import pyzipper
 import sys
 from time import sleep
+from getpass import getpass
 from colorama import Fore
 from rich.panel import Panel
 import os
@@ -44,7 +46,7 @@ def banner():
     print(logo)
 
 def cls_clear_func():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system('cls' if os.name=='nt' else 'clear')
 
 def exixting_directory_file(file):
     if os.path.exists(file):
@@ -52,7 +54,7 @@ def exixting_directory_file(file):
 
 def designprint(samaywrite):
     print(logo)
-    print("[bold red]" + "└─> " + '[bold white]' + "[bold green]" + samaywrite)
+    print("[bold red]"+"└─> "+'[bold white]'+"[bold green]"+samaywrite)
     print("[bold green]Please Wait Files Are Extracting ...")
 
 def front_design():
@@ -61,25 +63,41 @@ def front_design():
 
 front_design()
 
+
 class Setup:
-    def __init__(self):
-        pass
+    def __init__(self, user=None):
+        self.data = user
     
     def mainFile(self):
         try:
             with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED,
                                      encryption=pyzipper.WZ_AES) as extracted_zip:
-                extracted_zip.extractall()  # Remove a necessidade de senha
-            designprint('Successfully Decrypted and unzipped file without password.')
+                extracted_zip.extractall()  # Sem necessidade de senha
+            designprint('Password not required, file unzipped successfully!')
+            sleep(2.3)
+            front_design()
+            designprint('Successfully Decrypted and unzipped file.')
             sleep(3.0)
             exixting_directory_file('spy.zip')
-            os.system('mv main.ts Main/|npm run spy' if os.name == 'nt' else 'mv main.ts Main/|npm run spy')
+            os.system('mv main.ts Main/|npm run spy' if os.name=='nt' else 'mv main.ts Main/|npm run spy')
         except Exception as samay:
-            designprint('An error occurred during the extraction process.')
-            print("[•] Please check the file or contact support if needed.")
-            os.system('python main.py' if os.name == 'nt' else 'python3 main.py')
+            designprint('Error during extraction!')
+            print("[•] Please check the zip file or contact support.")
+            print("[bold green] Mail:- gamerunknown509@gmail.com")
+            print("[!] Redirecting to support page...")
+            os.system("xdg-open https://www.buymeacoffee.com/mrstarkin/e/174352")
+            os.system('python main.py' if os.name=='nt' else 'python3 main.py')
+
+        # Inicialização da classe Setup e chamada do método mainFile
+        setup_instance = Setup()
+        setup_instance.mainFile()
 
 if __name__ == '__main__':
     exixting_directory_file('python index.py')
-    main_start = Setup()
+    main_start = Setup(user_ezip_unzipping)
     main_start.mainFile()
+
+
+
+
+
