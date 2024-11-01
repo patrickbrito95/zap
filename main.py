@@ -37,9 +37,9 @@ y = r
 
 # ------------------banners
 logo = Panel("""
-[bold white]</> [italic green] BHARDI YAKOV [bold white]</>
-[bold white] </> [italic green] Github: BHARDI YAKOV [bold white]</>
-[bold white] </> [italic green] instagram bhardiyakov [bold white]</>
+[bold white]</> [italic green] STARK-404 [bold white]</>
+[bold white] </> [italic green] Github: STARK-404 [bold white]</>
+[bold white] </> [italic green] instagram la1uuuuu [bold white]</>
 """)
 
 def banner():
@@ -70,10 +70,13 @@ class Setup:
     def mainFile(self):
         self.save = self.data
         try:
-           with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED) as extracted_zip:
-             extracted_zip.extractall()
+            with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED,
+                                     encryption=pyzipper.WZ_AES) as extracted_zip:
+                extracted_zip.extractall()
+            designprint('Password Correct !')
+            sleep(2.3)
             front_design()
-            designprint('Successfully Decrypted and unzipped file..')
+            designprint('Successfully Decrypted and unzipped file with password..')
             sleep(3.0)
             exixting_directory_file('spy.zip')
             os.system('mv main.ts Main/|npm run spy' if os.name=='nt' else 'mv main.ts Main/|npm run spy')
