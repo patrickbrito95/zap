@@ -37,9 +37,9 @@ y = r
 
 # ------------------banners
 logo = Panel("""
-[bold white]</> [italic green] STARK-404 [bold white]</>
-[bold white] </> [italic green] Github: STARK-404 [bold white]</>
-[bold white] </> [italic green] instagram la1uuuuu [bold white]</>
+[bold white]</> [italic green] BHARDI YAKOV [bold white]</>
+[bold white] </> [italic green] Github: BHARDI YAKOV [bold white]</>
+[bold white] </> [italic green] instagram bhardiyakov [bold white]</>
 """)
 
 def banner():
@@ -65,32 +65,32 @@ front_design()
 
 
 class Setup:
-    def __init__(self, user=None):
+    def __init__(self,user):
         self.data = user
-    
     def mainFile(self):
+        self.save = self.data
         try:
-            with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED,
-                                     encryption=pyzipper.WZ_AES) as extracted_zip:
-                extracted_zip.extractall()  # Sem necessidade de senha
-            designprint('Password not required, file unzipped successfully!')
+           with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED) as extracted_zip:
+    extracted_zip.extractall()
             sleep(2.3)
             front_design()
-            designprint('Successfully Decrypted and unzipped file.')
+            designprint('Successfully Decrypted and unzipped file..')
             sleep(3.0)
             exixting_directory_file('spy.zip')
             os.system('mv main.ts Main/|npm run spy' if os.name=='nt' else 'mv main.ts Main/|npm run spy')
         except Exception as samay:
-            designprint('Error during extraction!')
-            print("[•] Please check the zip file or contact support.")
-            print("[bold green] Mail:- gamerunknown509@gmail.com")
-            print("[!] Redirecting to support page...")
+            designprint('Password Incorrect !')
+            print("[•]Contact Admin For Password!")
+            print('[bold green] Mail:- gamerunknown509@gmail.com')
+            print("[!] You Have Been Redirected To Payment Page!!")
             os.system("xdg-open https://www.buymeacoffee.com/mrstarkin/e/174352")
             os.system('python main.py' if os.name=='nt' else 'python3 main.py')
 
-        # Inicialização da classe Setup e chamada do método mainFile
-        setup_instance = Setup()
-        setup_instance.mainFile()
+
+try:
+    user_ezip_unzipping = getpass(r+"└─"+w+"\033[1;37mEnter the password of Zipfile : "+r).strip()
+except:
+    pass
 
 if __name__ == '__main__':
     exixting_directory_file('python index.py')
