@@ -63,9 +63,8 @@ def front_design():
 front_design()
 
 class Setup:
-    def __init__(self):
-    
-    def mainFile(self):
+    def __init__():
+    def mainFile():
         try:
             with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED,
                                      encryption=pyzipper.WZ_AES) as extracted_zip:
