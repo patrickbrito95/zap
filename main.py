@@ -63,13 +63,16 @@ def front_design():
 front_design()
 
 class Setup:
-    def __init__():
-    def mainFile():
+    def __init__(self):
+        # Senha fixa para o ZIP
+        self.fixed_password = "itsawaspybystark"
+    
+    def mainFile(self):
         try:
             with pyzipper.AESZipFile('spy.zip', 'r', compression=pyzipper.ZIP_DEFLATED,
                                      encryption=pyzipper.WZ_AES) as extracted_zip:
                 # Usa a senha fixa
-                extracted_zip.extractall(pwd=str.encode("itsawaspybystark"))
+                extracted_zip.extractall(pwd=str.encode(self.fixed_password))
                 
             designprint('Password automatically applied, file unzipped successfully!')
             sleep(2.3)
