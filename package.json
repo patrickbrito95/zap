@@ -1,25 +1,17 @@
 {
-  "name": "whatsapp-spy",
+  "name": "spyzap",
   "version": "1.0",
-  "description": "WhatsApp Spy",
+  "description": "SpyZap",
   "keywords": [
-    "whatsapp",
-    "js-whatsapp",
-    "whatsapp-api",
-    "whatsapp-web",
-    "whatsapp-chat",
-    "whatsapp-group",
-    "automation",
-    "multi-device",
-    "WhatsApp-spy"
+    
   ],
-  "homepage": "https://github.com/STARK-404/WhatsApp-spy",
+  "homepage": "",
   "repository": {
-    "url": "git@github.com:STARK-404/WhatsApp-spy.git"
+    "url": ""
   },
   "license": "MIT",
-  "repo-author": "Stark/Lalkrishna",
-  "author": "adiwajshing/baileys",
+  "repo-author": "",
+  "author": "bhardi",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
